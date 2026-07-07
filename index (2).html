@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sufiyan 🌹</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rose-950:#4a0d1f;
+    --rose-800:#8f1d3f;
+    --rose-600:#c73a5e;
+    --rose-400:#e8688a;
+    --pink-300:#f5a3bd;
+    --pink-100:#ffe1ea;
+    --cream:#fff6f8;
+    --gold:#e8bf8a;
+  }
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0;padding:0;height:100%;
+    font-family:'Cormorant Garamond', serif;
+    background: radial-gradient(ellipse at top, var(--rose-800) 0%, var(--rose-950) 45%, #2a0714 100%);
+    overflow:hidden;
+    color:var(--cream);
+  }
+  #stage{
+    position:relative;
+    width:100%;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .float-item{
+    position:absolute;
+    bottom:-10%;
+    pointer-events:none;
+    opacity:0.85;
+    filter:drop-shadow(0 0 6px rgba(255,255,255,0.15));
+    animation-name:rise;
+    animation-timing-function:ease-in;
+    animation-iteration-count:infinite;
+  }
+  @keyframes rise{
+    0%{ transform:translateY(0) translateX(0) rotate(0deg); opacity:0; }
+    10%{ opacity:0.9; }
+    50%{ transform:translateY(-55vh) translateX(var(--drift,20px)) rotate(180deg); }
+    100%{ transform:translateY(-115vh) translateX(calc(var(--drift,20px) * -1)) rotate(360deg); opacity:0; }
+  }
+  .sparkle{
+    position:absolute;
+    width:6px;height:6px;border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 8px 2px var(--gold);
+    animation:twinkle 2.4s ease-in-out infinite;
+  }
+  @keyframes twinkle{
+    0%,100%{opacity:0.15; transform:scale(0.7);}
+    50%{opacity:1; transform:scale(1.3);}
+  }
+  .card{
+    position:relative;
+    z-index:5;
+    width:min(90vw, 460px);
+    min-height:380px;
+    padding:44px 34px 34px;
+    border-radius:28px;
+    background:linear-gradient(160deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04));
+    backdrop-filter:blur(18px) saturate(140%);
+    -webkit-backdrop-filter:blur(18px) saturate(140%);
+    border:1px solid rgba(255,255,255,0.25);
+    box-shadow:0 20px 60px rgba(30,0,10,0.55), inset 0 1px 0 rgba(255,255,255,0.3);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    animation:cardIn 0.9s cubic-bezier(.2,.9,.3,1.2);
+  }
+  @keyframes cardIn{
+    0%{ opacity:0; transform:translateY(30px) scale(0.94); }
+    100%{ opacity:1; transform:translateY(0) scale(1); }
+  }
+  .rose-emoji{
+    font-size:38px;
+    margin-bottom:6px;
+    animation:sway 3.5s ease-in-out infinite;
+    display:inline-block;
+  }
+  @keyframes sway{
+    0%,100%{ transform:rotate(-6deg); }
+    50%{ transform:rotate(6deg); }
+  }
+  .screen-title{
+    font-family:'Dancing Script', cursive;
+    font-size:2.3rem;
+    color:var(--pink-100);
+    margin:6px 0 18px;
+    text-shadow:0 2px 12px rgba(0,0,0,0.35);
+  }
+  .msg{
+    font-size:1.26rem;
+    line-height:1.65;
+    color:var(--pink-100);
+    min-height:130px;
+    font-style:italic;
+    letter-spacing:0.2px;
+  }
+  .cursor{
+    display:inline-block;
+    width:2px;
+    background:var(--pink-100);
+    margin-left:2px;
+    animation:blink 0.9s steps(1) infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+  .nav-row{
+    margin-top:30px;
+    display:flex;
+    gap:16px;
+    align-items:center;
+  }
+  .btn{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.05rem;
+    letter-spacing:0.5px;
+    padding:12px 26px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,0.4);
+    background:linear-gradient(135deg, var(--rose-600), var(--rose-400));
+    color:#fff;
+    cursor:pointer;
+    box-shadow:0 8px 24px rgba(199,58,94,0.45);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn:hover{ transform:translateY(-3px); box-shadow:0 12px 30px rgba(199,58,94,0.6); }
+  .btn:active{ transform:translateY(0); }
+  .dots{
+    position:absolute;
+    bottom:18px;
+    left:0;right:0;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    z-index:5;
+  }
+  .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:rgba(255,255,255,0.3);
+    transition:all 0.3s ease;
+  }
+  .dot.active{
+    background:var(--pink-100);
+    width:20px;
+    border-radius:5px;
+  }
+  .yes-btn{ background:linear-gradient(135deg,#ff5c8a,#c73a5e); }
+  .no-btn{
+    background:transparent;
+    border:1px solid var(--pink-300);
+    color:var(--pink-300);
+  }
+  #music-toggle{
+    position:absolute;
+    top:18px;
+    right:18px;
+    z-index:20;
+    width:44px;height:44px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.35);
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(8px);
+    color:var(--pink-100);
+    font-size:18px;
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+  }
+  #ending{
+    position:fixed; inset:0;
+    z-index:50;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:radial-gradient(ellipse at center, rgba(74,13,31,0.55), rgba(20,4,10,0.92));
+    text-align:center;
+  }
+  #ending .ending-card{
+    width:min(90vw,420px);
+    padding:40px 30px;
+  }
+  #ending h2{
+    font-family:'Dancing Script', cursive;
+    font-size:2.5rem;
+    color:var(--pink-100);
+    margin-bottom:14px;
+  }
+  #ending p{
+    font-size:1.2rem;
+    color:var(--pink-100);
+    line-height:1.6;
+  }
+  .signature{
+    margin-top:22px;
+    font-family:'Dancing Script', cursive;
+    font-size:1.6rem;
+    color:var(--gold);
+  }
+  .burst-heart{
+    position:absolute;
+    font-size:22px;
+    animation:burst 1.4s ease-out forwards;
+    pointer-events:none;
+  }
+  @keyframes burst{
+    0%{ transform:translate(0,0) scale(0.5); opacity:1; }
+    100%{ transform:translate(var(--bx), var(--by)) scale(1.4); opacity:0; }
+  }
+  @media (max-width:480px){
+    .card{ padding:34px 22px 26px; min-height:340px; }
+    .screen-title{ font-size:1.9rem; }
+    .msg{ font-size:1.1rem; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .float-item,.sparkle,.rose-emoji,.card{ animation:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<button id="music-toggle" title="Toggle music">🔇</button>
+<audio id="bg-music" src="music.mp3" loop></audio>
+
+<div id="stage">
+  <div id="floaters"></div>
+  <div class="card" id="card">
+    <div class="rose-emoji" id="emoji">❤️</div>
+    <div class="screen-title" id="title"></div>
+    <div class="msg" id="message"><span id="typed"></span><span class="cursor" id="cursor"></span></div>
+    <div class="nav-row" id="nav-row"></div>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+
+<div id="ending">
+  <div class="ending-card">
+    <h2 id="ending-title"></h2>
+    <p id="ending-text"></p>
+    <div class="signature">❤️ From Zahra ❤️</div>
+  </div>
+</div>
+
+<script>
+const screens = [
+  {
+    emoji:"❤️",
+    title:"Hi Sufiyan... 🌹",
+    text:"Sometimes the distance feels so long, and I find myself thinking about you more than I can explain. I just wanted you to know that you're often on my mind."
+  },
+  {
+    emoji:"💕",
+    title:"",
+    text:"Every little memory of us makes me smile. Even though we're far apart, I hope you're happy, healthy, and smiling every day."
+  },
+  {
+    emoji:"💖",
+    title:"",
+    text:"There are moments when I wish we could sit together, talk for hours, and laugh like we always wanted to. Distance is hard, but kind memories make it a little easier."
+  },
+  {
+    emoji:"🌹",
+    title:"One little question...",
+    text:"Sufiyan, do you ever miss me? 🥺❤️",
+    final:true
+  }
+];
+
+let current = 0;
+let typing = false;
+
+const emojiEl = document.getElementById('emoji');
+const titleEl = document.getElementById('title');
+const typedEl = document.getElementById('typed');
+const cursorEl = document.getElementById('cursor');
+const navRow = document.getElementById('nav-row');
+const dotsWrap = document.getElementById('dots');
+const card = document.getElementById('card');
+
+function buildDots(){
+  dotsWrap.innerHTML = '';
+  screens.forEach((_, i)=>{
+    const d = document.createElement('div');
+    d.className = 'dot' + (i===current ? ' active' : '');
+    dotsWrap.appendChild(d);
+  });
+}
+
+function typeText(text, cb){
+  typedEl.textContent = '';
+  let i = 0;
+  typing = true;
+  cursorEl.style.display = 'inline-block';
+  const speed = 32;
+  function step(){
+    if(i < text.length){
+      typedEl.textContent += text.charAt(i);
+      i++;
+      setTimeout(step, speed);
+    } else {
+      typing = false;
+      cursorEl.style.display = 'none';
+      if(cb) cb();
+    }
+  }
+  step();
+}
+
+function renderScreen(){
+  buildDots();
+  emojiEl.textContent = screens[current].emoji;
+  titleEl.textContent = screens[current].title || '';
+  navRow.innerHTML = '';
+
+  card.style.animation = 'none';
+  void card.offsetWidth;
+  card.style.animation = 'cardIn 0.7s cubic-bezier(.2,.9,.3,1.2)';
+
+  typeText(screens[current].text, ()=>{
+    if(screens[current].final){
+      const yes = document.createElement('button');
+      yes.className = 'btn yes-btn';
+      yes.innerHTML = '❤️ Yes';
+      yes.onclick = ()=> showEnding(true);
+
+      const no = document.createElement('button');
+      no.className = 'btn no-btn';
+      no.innerHTML = '💔 No';
+      no.onclick = ()=> showEnding(false);
+
+      navRow.appendChild(yes);
+      navRow.appendChild(no);
+    } else {
+      const next = document.createElement('button');
+      next.className = 'btn';
+      next.textContent = 'Next →';
+      next.onclick = goNext;
+      navRow.appendChild(next);
+    }
+  });
+}
+
+function goNext(){
+  if(typing) return;
+  if(current < screens.length - 1){
+    current++;
+    renderScreen();
+  }
+}
+
+function showEnding(yes){
+  const overlay = document.getElementById('ending');
+  const t = document.getElementById('ending-title');
+  const p = document.getElementById('ending-text');
+  overlay.style.display = 'flex';
+  if(yes){
+    t.textContent = "That means more than you know 🥹💖";
+  } else {
+    t.textContent = "That's okay too 😊";
+  }
+  p.textContent = "No matter what your answer is, I hope you stay happy and keep smiling.";
+  launchHeartBurst();
+}
+
+function launchHeartBurst(){
+  const overlay = document.getElementById('ending');
+  const hearts = ['❤️','💕','💖','🌹','✨'];
+  for(let i=0;i<26;i++){
+    const h = document.createElement('div');
+    h.className = 'burst-heart';
+    h.textContent = hearts[Math.floor(Math.random()*hearts.length)];
+    h.style.left = (45 + Math.random()*10) + '%';
+    h.style.top = (40 + Math.random()*10) + '%';
+    const bx = (Math.random()*500 - 250) + 'px';
+    const by = (Math.random()*-400 - 50) + 'px';
+    h.style.setProperty('--bx', bx);
+    h.style.setProperty('--by', by);
+    h.style.animationDelay = (Math.random()*0.4)+'s';
+    overlay.appendChild(h);
+    setTimeout(()=>h.remove(), 2000);
+  }
+}
+
+function spawnFloaters(){
+  const wrap = document.getElementById('floaters');
+  const symbols = ['❤️','💕','🌸','✨','💖'];
+  setInterval(()=>{
+    const el = document.createElement('div');
+    const isSparkle = Math.random() < 0.2;
+    if(isSparkle){
+      el.className = 'sparkle float-item';
+    } else {
+      el.className = 'float-item';
+      el.style.fontSize = (14 + Math.random()*20) + 'px';
+      el.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+    }
+    el.style.left = (Math.random()*100) + '%';
+    el.style.setProperty('--drift', (Math.random()*60-30)+'px');
+    const dur = 8 + Math.random()*6;
+    el.style.animationDuration = dur + 's';
+    wrap.appendChild(el);
+    setTimeout(()=>el.remove(), dur*1000 + 500);
+  }, 450);
+}
+
+const musicBtn = document.getElementById('music-toggle');
+const audioEl = document.getElementById('bg-music');
+let musicOn = false;
+musicBtn.addEventListener('click', ()=>{
+  if(!musicOn){
+    audioEl.play().then(()=>{
+      musicOn = true;
+      musicBtn.textContent = '🔊';
+    }).catch(()=>{
+      musicBtn.textContent = '🔇';
+      musicOn = false;
+    });
+  } else {
+    audioEl.pause();
+    musicOn = false;
+    musicBtn.textContent = '🔇';
+  }
+});
+
+spawnFloaters();
+renderScreen();
+</script>
+</body>
+</html>
